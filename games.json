@@ -1,5 +1,5 @@
 [
-  { "name": "2048", "file": "https://toxicburstxz.github.io/gs-assets/game-files/car-hex.html", "img": "img/game-icons/2048.png" },
+  { "name": "Car Hex", "file": "https://toxicburstxz.github.io/gs-assets/game-files/car-hex.html", "img": "https://toxicburstxz.github.io/img/game-icons/car-hex-2.png" },
   { "name": "3 Slices 2", "file": "gs-assets/game-files/3-slices-2.html", "img": "img/game-icons/3-slices-2.png" },
   { "name": "60 Seconds Burger Run", "file": "gs-assets/game-files/60-seconds-burger-run.html", "img": "img/game-icons/60-second-burger-run.png" },
   { "name": "Achilles", "file": "gs-assets/game-files/achilles.html", "img": "img/game-icons/achilles.png" },
