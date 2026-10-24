@@ -1,6 +1,7 @@
 /* Games tab: loads games.json, search, player, fullscreen */
 // ---------- games ----------
 // The list comes from games.json: [{"name":"Game","file":"path/to/game.html","img":"path/to/icon.png"}, ...]
+const PLACEHOLDER_IMG='https://cdn.jsdelivr.net/gh/ToxicBurstXZ/img@main/place-holder.png';
 const GAMES=[];
 let gamesState='loading';   // loading | ok | failed
 const gameGrid=document.getElementById('gameGrid'), gameSearch=document.getElementById('gameSearch');
@@ -54,7 +55,11 @@ function renderGames(){
     const b=document.createElement('button');
     b.type='button'; b.className='game'; b.disabled=!!g.soon;
     const th=document.createElement('div'); th.className='thumb';
-    if(g.img){ const im=document.createElement('img'); im.src=g.img; im.alt=g.title; th.appendChild(im); }
+    const im=document.createElement('img'); im.alt=g.title;
+    let fellBack=false;
+    im.addEventListener('error',()=>{ if(!fellBack){ fellBack=true; im.src=PLACEHOLDER_IMG; } });   // picture failed: swap in the placeholder
+    im.src=g.img||PLACEHOLDER_IMG;                                                                  // no picture given: placeholder
+    th.appendChild(im);
     const nm=document.createElement('div'); nm.className='name'; nm.textContent=g.title;
     b.append(th,nm);
     if(!g.soon) b.addEventListener('click',()=>openGame(g));
@@ -72,8 +77,14 @@ async function openGame(g){
   gamesList.hidden=true; gamePlayer.hidden=false;
   let ok=false;
   if(g.src){
-    try{ const r=await fetch(g.src); ok=r.ok; }
-    catch(e){ try{ await fetch(g.src,{mode:'no-cors'}); ok=true; }catch(e2){ ok=false; } }
+    try{
+      const url=new URL(g.src,location.href);
+      if(location.protocol==='file:'){ ok=true; }                 // browsers block checks from file://, so just try to load it
+      else if(url.origin===location.origin){                      // same site: a missing file is a real error
+        const r=await fetch(url); ok=r.ok;
+        if(!ok) console.warn('Game file not found:',url.href,r.status);
+      } else { await fetch(url,{mode:'no-cors'}); ok=true; }      // other site: only fails if it can't be reached
+    }catch(e){ ok=false; console.warn('Game could not load:',g.src,e); }
   }
   if(token!==openToken||gamePlayer.hidden) return;   // user already went back or opened another game
   if(!ok){ showError(); return; }
@@ -108,4 +119,3 @@ fetch('games.json').then(r=>r.ok?r.json():Promise.reject()).then(list=>{
   for(let i=1;i<=14;i++) GAMES.push({title:'Game '+i});
   gamesState='ok'; renderGames();
 });
-
