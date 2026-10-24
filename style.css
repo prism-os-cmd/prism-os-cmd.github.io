@@ -91,8 +91,7 @@ canvas#fx{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;display:blo
 .game:disabled{opacity:.5;cursor:default}
 .game:focus-visible{outline:3px solid rgba(120,170,255,.9);outline-offset:3px}
 .thumb{position:relative;aspect-ratio:1/1;width:100%}
-.thumb::before{content:"";position:absolute;inset:calc(var(--frame-inset)*.44);background:url("https://cdn.jsdelivr.net/gh/ToxicBurstXZ/img@main/place-holder.png") center/100% 100% no-repeat;border-radius:var(--placeholder-radius)}
-.thumb img{position:absolute;inset:var(--frame-inset);width:calc(100% - 2*var(--frame-inset));height:calc(100% - 2*var(--frame-inset));object-fit:cover;display:block}
+.thumb img{position:absolute;inset:calc(var(--frame-inset)*.44);width:calc(100% - 2*var(--frame-inset)*.44);height:calc(100% - 2*var(--frame-inset)*.44);object-fit:cover;display:block;border-radius:var(--placeholder-radius)}
 .thumb-emoji{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;font-size:clamp(26px,3.6vw,52px)}
 .thumb::after{content:"";position:absolute;inset:calc(-1*var(--frame-grow));background:url("https://cdn.jsdelivr.net/gh/ToxicBurstXZ/img@main/window-shine-still.png") center/100% 100% no-repeat;image-rendering:pixelated;pointer-events:none}
 .thumb.playing::after{background-image:var(--shine)}
