@@ -115,3 +115,13 @@ canvas#fx{position:fixed;inset:0;width:100vw;height:100vh;z-index:-1;display:blo
 .switch.on{background:rgba(0,91,255,.5);border-color:rgba(90,150,255,.7);box-shadow:0 0 16px rgba(0,91,255,.5)}
 .switch.on .knob{transform:translateX(26px)}
 .switch:focus-visible{outline:2px solid rgba(120,170,255,.9);outline-offset:2px}
+
+/* info / updates */
+#page-info h2{text-align:center}
+.updates-list{margin-top:22px}
+.update{display:grid;grid-template-columns:minmax(110px,170px) 1fr;gap:8px 24px;padding:20px 0}
+.update+.update{border-top:1px solid rgba(255,255,255,.12)}
+.update-version{margin:0;font-family:'Orbitron',Arial,sans-serif;font-size:1rem;letter-spacing:1.5px;text-shadow:0 0 8px rgba(0,91,255,.8)}
+.update-date{display:block;margin-top:6px;font-family:Arial,sans-serif;font-size:.75rem;letter-spacing:0;color:rgba(255,255,255,.55);text-shadow:none}
+.update-desc{margin:0}
+@media(max-width:520px){.update{grid-template-columns:1fr}}
