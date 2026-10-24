@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Prism OS</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="bg-gradient" id="bgGradient"></div>
+<canvas id="waves"></canvas>
+<canvas id="fx"></canvas>
+<div id="themeFade"></div>
+<div class="btn-wrap" id="wrap">
+  <div class="triangle-frame">
+    <button class="triangle-btn" id="startBtn" aria-label="Start OS"></button>
+    <svg class="triangle-lines" viewBox="0 0 360 320">
+      <path class="orbit-line"/><path class="orbit-line"/><path class="orbit-line"/>
+      <path class="inner-line"/><path class="inner-line"/><path class="inner-line"/>
+    </svg>
+  </div>
+</div>
+<div class="title-wrap" id="titleWrap"><h1 class="title" id="title">Start<br>OS</h1></div>
+
+<div class="ui" id="ui">
+<main class="pages" id="pages">
+  <section class="page bare" id="page-home">
+    <h2 class="sr-only">Home</h2>
+    <div class="home">
+      <svg class="logo" viewBox="-14 -28 388 358" aria-hidden="true">
+        <path class="logo-ring" fill-rule="evenodd" d="M 15 0 L 345 0 Q 360 0 352.7 13 L 187.3 307 Q 180 320 172.7 307 L 7.3 13 Q 0 0 15 0 Z M 46.2 20 L 313.8 20 Q 325.8 20 319.92 30.46 L 185.88 268.74 Q 180 279.2 174.12 268.74 L 40.08 30.46 Q 34.2 20 46.2 20 Z"/>
+        <path class="logo-orbit"/><path class="logo-orbit"/><path class="logo-orbit"/>
+        <path class="logo-inner"/><path class="logo-inner"/><path class="logo-inner"/>
+      </svg>
+      <p class="greeting">Welcome User to PRISM O.S</p>
+      <div class="search">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="text" placeholder="Search" aria-label="Search" autocomplete="off" spellcheck="false">
+      </div>
+    </div>
+  </section>
+  <section class="page" id="page-games">
+    <div id="gamesList">
+      <h2>Games</h2>
+      <div class="search" style="margin:0 auto 20px">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+        <input type="text" id="gameSearch" placeholder="Search games" aria-label="Search games" autocomplete="off" spellcheck="false">
+      </div>
+      <div class="game-grid" id="gameGrid"></div>
+      <p id="gameEmpty" hidden>No games found.</p>
+    </div>
+    <div id="gamePlayer" hidden>
+      <div class="player-bar">
+        <button class="set-btn ghost icon-btn" type="button" id="gameBack" aria-label="Back" title="Back"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M12 5l-7 7 7 7"/></svg></button>
+        <h2 id="gameTitle" style="margin:0"></h2>
+        <button class="set-btn ghost icon-btn" type="button" id="gameFull" aria-label="Fullscreen" title="Fullscreen"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8 3H3v5M16 3h5v5M21 16v5h-5M3 16v5h5"/></svg></button>
+      </div>
+      <div class="game-stage" id="gameStage"></div>
+    </div>
+  </section>
+  <section class="page" id="page-proxy"><h2>Proxy</h2><p>Your proxy tools will go here.</p></section>
+  <section class="page" id="page-settings">
+    <h2>Settings</h2>
+    <div class="set-section">
+      <h3>Style &amp; Background</h3>
+      <div class="swatches" id="setSwatches"></div>
+    </div>
+    <div class="set-section">
+      <h3>Sound</h3>
+      <div class="set-row" style="align-items:center">
+        <input class="slider" type="range" id="setVol" min="0" max="100" step="1" aria-label="Site volume">
+        <span class="set-label" id="setVolLabel">100%</span>
+      </div>
+    </div>
+    <div class="set-section">
+      <h3>Tab Title &amp; Icon</h3>
+      <label class="set-label" for="setTitle">Tab title</label>
+      <input class="set-input" type="text" id="setTitle" maxlength="40" placeholder="Page title" autocomplete="off">
+      <label class="set-label">Tab icon (upload an image)</label>
+      <img class="icon-preview" id="setIconPreview" alt="Current tab icon" hidden>
+      <div class="set-row" style="margin-top:14px">
+        <button class="set-btn" type="button" id="setUploadBtn">Upload image</button>
+        <button class="set-btn ghost" type="button" id="setIconRemove">Remove icon</button>
+        <input class="set-file" type="file" id="setFile" accept="image/*">
+        <button class="set-btn ghost" type="button" id="setReset">Reset all</button>
+      </div>
+    </div>
+  </section>
+  <section class="page" id="page-info"><h2>Info / Updates</h2><p>Info and updates will go here.</p></section>
+</main>
+<nav class="dock" id="dock" aria-label="Main navigation">
+  <div class="dock-indicator" id="dockIndicator"></div>
+  <button class="dock-btn" data-page="proxy"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3c2.8 3 2.8 15 0 18M12 3c-2.8 3-2.8 15 0 18"/></svg><span>Proxy</span></button>
+  <button class="dock-btn" data-page="games"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="2" y="7" width="20" height="11" rx="5.5"/><path d="M7 10.5v4M5 12.5h4"/><circle cx="15.5" cy="11.5" r=".6"/><circle cx="18" cy="13.5" r=".6"/></svg><span>Games</span></button>
+  <button class="dock-btn active" data-page="home" aria-current="page"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M10 21v-6h4v6"/></svg><span>Home</span></button>
+  <button class="dock-btn" data-page="settings"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1a2 2 0 1 1-2.8 2.8l-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V21a2 2 0 1 1-4 0v-.1a1.7 1.7 0 0 0-1.1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1a2 2 0 1 1-2.8-2.8l.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H3a2 2 0 1 1 0-4h.1a1.7 1.7 0 0 0 1.5-1.1 1.7 1.7 0 0 0-.3-1.9l-.1-.1a2 2 0 1 1 2.8-2.8l.1.1a1.7 1.7 0 0 0 1.9.3H9a1.7 1.7 0 0 0 1-1.5V3a2 2 0 1 1 4 0v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1a2 2 0 1 1 2.8 2.8l-.1.1a1.7 1.7 0 0 0-.3 1.9V9a1.7 1.7 0 0 0 1.5 1H21a2 2 0 1 1 0 4h-.1a1.7 1.7 0 0 0-1.5 1Z"/></svg><span>Settings</span></button>
+  <button class="dock-btn" data-page="info"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 11v5.5"/><circle cx="12" cy="7.8" r=".6"/></svg><span>Info/Updates</span></button>
+</nav>
+</div>
+
+
+<script src="js/background.js"></script>
+<script src="js/intro.js"></script>
+<script src="js/ui.js"></script>
+<script src="js/settings.js"></script>
+<script src="js/games.js"></script>
+</body>
+</html>
