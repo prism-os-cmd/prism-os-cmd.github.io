@@ -1,0 +1,16 @@
+[
+  { "name": "2048", "file": "gs-assets/game-files/2048.html", "img": "img/game-icons/2048.png" },
+  { "name": "3 Slices 2", "file": "gs-assets/game-files/3-slices-2.html", "img": "img/game-icons/3-slices-2.png" },
+  { "name": "60 Seconds Burger Run", "file": "gs-assets/game-files/60-seconds-burger-run.html", "img": "img/game-icons/60-second-burger-run.png" },
+  { "name": "Achilles", "file": "gs-assets/game-files/achilles.html", "img": "img/game-icons/achilles.png" },
+  { "name": "Agar.io SX", "file": "gs-assets/game-files/agario.html", "img": "img/game-icons/agario-sx.png" },
+  { "name": "Awesome Tanks 2", "file": "gs-assets/game-files/awesome-tank-2.html", "img": "img/game-icons/awesome-tanks-2.png" },
+  { "name": "Bad Ice Cream", "file": "gs-assets/game-files/bad-ice-cream.html", "img": "img/game-icons/bad-ice-cream.png" },
+  { "name": "Bad Ice Cream 2", "file": "gs-assets/game-files/bad-ice-cream-2.html", "img": "img/game-icons/bad-ice-cream-2.png" },
+  { "name": "Bad Ice Cream 3", "file": "gs-assets/game-files/bad-ice-cream-3.html", "img": "img/game-icons/bad-ice-cream-3.png" },
+  { "name": "Binding of Isaac", "file": "gs-assets/game-files/binding-of-isaac.html", "img": "img/game-icons/bfi.jpg" },
+  { "name": "Black Jack Battle", "file": "gs-assets/game-files/black-jack-battle.html", "img": "img/game-icons/black-jack-battle.png" },
+  { "name": "BTD 3", "file": "gs-assets/game-files/bloons-tower-defense-3.html", "img": "img/game-icons/bloons-tower-defense-3.png" },
+  { "name": "BTD 4", "file": "gs-assets/game-files/bloons-tower-defense-4.html", "img": "img/game-icons/bloons-tower-defense-4.png" },
+  { "name": "BTD 5", "file": "gs-assets/game-files/bloons-tower-defense-5.html", "img": "img/game-icons/bloons-tower-defense-5.png" }
+]
